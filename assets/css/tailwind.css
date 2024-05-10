@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  main a {
+    letter-spacing: 0;
+    color: #ff5c72;
+    @apply transition-all duration-200 ease-in-out;
+  }
+  main a:hover {
+    color: #58c589;
+  }
+  p {
+    color: #5f6f81;
+    font-weight: 300;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #a7b5fd;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track-piece {
+    -webkit-border-radius: 0;
+  }
+  ::selection {
+    color: #fff;
+    background: #a69bdfb0;
+  }
+  ::-moz-selection {
+    color: #fff;
+    background: #a7b5fd;
+  }
+  ::-webkit-selection {
+    color: #fff;
+    background: #a7b5fd;
+  }
+  @font-face {
+    font-family: "Play";
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/play.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+      U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  }
+  @font-face {
+    font-family: "oxaniumregular";
+    font-weight: 400;
+    font-style: normal;
+    src:
+      url(/fonts/oxanium-regular-webfont.woff2) format("woff2"),
+      url(/fonts/oxanium-regular-webfont.woff) format("woff");
+  }
+  body {
+    margin: 0;
+    font-family:
+      "Play",
+      "MArima Madurai",
+      Microsoft JhengHei,
+      Georgia,
+      Times,
+      serif,
+      Microsoft Yahei,
+      Open Sans,
+      sans-serif;
+    color: #67748e;
+    font-size: 15px;
+    background-color: #fff;
+  }
+}
+@layer components {
+  .border-base {
+    @apply rounded-[10px] border-[1px] border-solid border-[#e8e2f582];
+  }
+  .tag {
+    @apply mx-0 my-1 inline-block rounded-[25px] border-[1px] border-solid border-[#ebebeb] px-3.5 py-[3px] text-[13px] text-[#8f9bad];
+  }
+  .tag:hover {
+    @apply border-[#fe4f70] text-[#fe4f70];
+  }
+  .widget-title {
+    position: relative;
+    color: #4c6280;
+    display: inline-block;
+    font-size: 15px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .widget-title:before {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    right: -40px;
+    width: 33px;
+    height: 6px;
+    background-image: url(/images/wave.svg);
+  }
+  .selector {
+    color: black;
+    border: 1px solid #b6bbde;
+    border-radius: 5px;
+    outline: none;
+    height: 30px;
+    text-align: center;
+  }
+}
