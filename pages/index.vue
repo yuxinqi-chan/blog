@@ -12,7 +12,7 @@
     </div>
     <div class="flex flex-col gap-y-5 lg:col-span-1">
       <Categories />
-      <PostList :posts="randomPosts" />
+      <PostList />
       <TagCloud />
     </div>
   </div>
@@ -75,25 +75,6 @@ const { data: posts } = await useAsyncData(
   {
     watch: [page, category, tag],
   },
-);
-
-const { data: randomPosts } = await useAsyncData(
-  "randomPosts",
-  () =>
-    getItems<{
-      id: number;
-      title: string;
-      cover: string;
-      date_created: string;
-    }>({
-      collection: "blog",
-      params: {
-        fields: ["id", "title", "date_created", "cover"],
-        limit: 6,
-        sort: "second(date_created)",
-      },
-    }),
-  { default: () => [] },
 );
 onMounted(() => {
   commentCount({ serverURL: config.public.walineUrl });

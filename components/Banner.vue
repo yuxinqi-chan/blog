@@ -16,6 +16,12 @@
         >
           首页
         </NuxtLink>
+        <NuxtLink
+          class="rounded-md p-2 font-semibold text-white hover:bg-white/10"
+          to="/vps"
+        >
+          Vps列表
+        </NuxtLink>
       </div>
       <div></div>
     </div>

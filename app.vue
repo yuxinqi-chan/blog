@@ -1,7 +1,7 @@
 <template>
   <div class="flex min-h-screen flex-col items-center">
     <Banner />
-    <main class="flex w-full max-w-screen-xl flex-col items-center">
+    <main class="flex w-full max-w-screen-xl grow flex-col items-center">
       <NuxtPage />
     </main>
     <footer class="flex w-full justify-between border-t p-5">

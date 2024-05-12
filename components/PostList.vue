@@ -2,7 +2,7 @@
   <div class="border-base p-4">
     <h3 class="widget-title">随机阅读</h3>
     <ul>
-      <li class="mb-2 flex" v-for="post in posts" :key="post.id">
+      <li class="mb-2 flex" v-for="post in randomPosts" :key="post.id">
         <div class="mr-3 h-10 w-16 shrink-0 overflow-hidden rounded-md">
           <NuxtLink :to="`/posts/${post.id}`">
             <img
@@ -30,12 +30,23 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
-  posts: {
-    id: number;
-    title: string;
-    cover: string;
-    date_created: string;
-  }[];
-}>();
+const { getItems } = useDirectusItems();
+const { data: randomPosts } = await useAsyncData(
+  "randomPosts",
+  () =>
+    getItems<{
+      id: number;
+      title: string;
+      cover: string;
+      date_created: string;
+    }>({
+      collection: "blog",
+      params: {
+        fields: ["id", "title", "date_created", "cover"],
+        limit: 6,
+        sort: "second(date_created)",
+      },
+    }),
+  { default: () => [] },
+);
 </script>
