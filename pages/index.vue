@@ -70,6 +70,7 @@ const { data: posts } = await useAsyncData(
         },
         limit: 10,
         page: page.value,
+        sort: "-date_created",
       },
     }),
   {
